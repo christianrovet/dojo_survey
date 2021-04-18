@@ -9,7 +9,14 @@
     <title>Dojo Survey</title>
 </head>
 <body>
-    <form action ="/result" method = "post">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action ="/add" method = "post">
         <label for="your_name">Your Name:</label>
             <input type="text" name="your_name">
         <p>Dojo Locations:</p>
@@ -27,7 +34,7 @@
             </select>
         <p>Comment (optional):</p>
             <textarea name="comment"></textarea>
-        <input type="submit" value="Button">
+        <input type="submit" value="Add">
     </form>
 </body>
 
